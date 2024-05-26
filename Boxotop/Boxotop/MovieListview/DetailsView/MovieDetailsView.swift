@@ -10,13 +10,21 @@ import SwiftUI
 struct MovieDetailsView: View {
     
     let movie: MovieRemote
-    @State var rottenTomatoesRating: Double = 0.0
-    
+//    @State var rottenTomatoesRating: Double
+    @State var isShowingFullScreen = false
     var body: some View {
         VStack {
             HStack(spacing: 8) {
                 MoviePosterView(poster: movie.poster)
                     .frame(width: 100, height: 120)
+                    .onTapGesture {
+                        isShowingFullScreen = true
+                    }
+                    .sheet(isPresented: $isShowingFullScreen) {
+                        MoviePosterView(poster: movie.poster)
+                            .scaledToFit()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    }
                 VStack(alignment: .leading, spacing: 8) {
                     Text(movie.title)
                         .font(.title)
@@ -30,7 +38,7 @@ struct MovieDetailsView: View {
                 Section {
                     VStack(alignment: .leading) {
                         Text("👥 Plot\n")
-                        Text(((movie.plot == "N/A") ? "No plot available yet  for this movie, sorry " : movie.plot ))
+                        Text(((movie.plot == "N/A") ? "No plot available yet for this movie, sorry " : movie.plot ))
                     }
                     NavigationLink(destination: WebView(url: URL(string: "https://www.google.fr/search?q=\(movie.title)")!)) {
                         Text("👀 Find more movie info")
@@ -45,29 +53,31 @@ struct MovieDetailsView: View {
                 if let writer = movie.writer {
                     LabeledContent("✍️ Writer", value: writer)
                 }
-                if let ratings = movie.ratings {
-                    ForEach(ratings, id: \.id) { rating in
-                        let note = rating.value
-                        let source = rating.source
-                        
-                        VStack(alignment: .leading) {
-                            Text("\(source.rawValue) \(note)")
-                            HStack {
-                                switch source {
-                                case .internetMovieDatabase:
-                                    ProgressView(value: convertIMDBRatingToProgress(rating: note))
-                                        .padding(.bottom)
-                                    
-                                case .metacritic:
-                                    ProgressView(value: convertMetacriticRatingToProgress(rating: note))
-                                        .padding(.bottom)
-                                
-                                case .rottenTomatoes:
-                                    ProgressView(value: convertRottenRatting())
-                                        .padding(.bottom)
+                Section("★ What viewers say about it") {
+                    if let ratings = movie.ratings {
+                        ForEach(ratings, id: \.id) { rating in
+                            let note = rating.value
+                            let source = rating.source
+                            
+                            VStack(alignment: .leading) {
+                                Text("\(source.rawValue) \(note)")
+                                HStack {
+                                    switch source {
+                                    case .internetMovieDatabase:
+                                        ProgressView(value: convertIMDBRatingToProgress(rating: note))
+                                            .padding(.bottom)
                                         
-                                default:
-                                    EmptyView()
+                                    case .metacritic:
+                                        ProgressView(value: convertMetacriticRatingToProgress(rating: note))
+                                            .padding(.bottom)
+                                        
+                                    case .rottenTomatoes:
+                                        ProgressView(value: convertRottenRatting(percentage: note))
+                                            .padding(.bottom)
+                                        
+                                    default:
+                                        EmptyView()
+                                    }
                                 }
                             }
                         }
@@ -82,15 +92,24 @@ struct MovieDetailsView: View {
         }
     }
     
-    private func convertRottenRatting() -> Double{
-        if let ratingString = movie.ratings?.first?.value {
-            let cleanedString = ratingString.replacingOccurrences(of: "%", with: "")
-            if let progressValue = Double(cleanedString) {
-                rottenTomatoesRating = progressValue / 100
-            }
+    func convertRottenRatting(percentage: String) -> Double {
+        let cleanedString = percentage.replacingOccurrences(of: "%", with: "")
+        if let percentageValue = Double(cleanedString) {
+            return percentageValue / 100.0
         }
-        return rottenTomatoesRating
+        return 0.0
     }
+    
+//    private func convertRottenRatting() -> Double {
+//        if let ratingString = movie.ratings?.first?.value {
+//            let cleanedString = ratingString.replacingOccurrences(of: "%", with: "")
+//            if let progressValue = Double(cleanedString) {
+//                print(progressValue / 100)
+//                return progressValue / 100
+//            }
+//        }
+//        return 0.0
+//    }
     
     private func convertIMDBRatingToProgress(rating: String) -> Double {
         let components = rating.split(separator: "/")
@@ -110,6 +129,6 @@ struct MovieDetailsView: View {
 }
 #Preview {
     NavigationStack {
-        MovieDetailsView(movie: .example, rottenTomatoesRating: 0.75)
+        MovieDetailsView(movie: .example)
     }
 }
