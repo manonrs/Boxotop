@@ -23,11 +23,12 @@ struct MoviePosterView: View {
                 ProgressView()
             }
             .aspectRatio(contentMode: .fill)
-            .frame(width: 80, height: 80)
+            .frame(width: 100)
         } else {
             Image(systemName: "square.slash")
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
+                .frame(width: 100, height: 150)
+                .background(.gray)
             
         }
     }

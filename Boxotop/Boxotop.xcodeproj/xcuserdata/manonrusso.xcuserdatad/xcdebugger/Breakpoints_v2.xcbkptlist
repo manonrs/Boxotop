@@ -18,22 +18,36 @@
             endingLineNumber = "13"
             landmarkName = "unknown"
             landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "83C6C780-2A25-4116-B4CC-EB6E04E57E5C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Boxotop/MovieListview/MovieList.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "body"
-            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FD995BD9-8D6C-4541-B78B-AE5118E725C4 - c2aeaac11029ff6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Boxotop.MovieRepository.deinit"
+                  moduleName = "Boxotop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manonrusso/Boxotop/Boxotop/Boxotop/Datas/MovieRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "FD995BD9-8D6C-4541-B78B-AE5118E725C4 - b408cb2347e1437a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Boxotop.MovieRepository.__deallocating_deinit"
+                  moduleName = "Boxotop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manonrusso/Boxotop/Boxotop/Boxotop/Datas/MovieRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

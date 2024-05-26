@@ -19,6 +19,8 @@ struct MovieListView: View {
                         Section {
                             HStack {
                                 MoviePosterView(poster: movie.poster)
+                                    .padding()
+
                                 VStack(alignment: .leading) {
                                     Text(movie.title)
                                         .bold()
@@ -26,21 +28,22 @@ struct MovieListView: View {
                                 }
                             }
                         }
-                        .frame(height: 130)
+                        .frame(height: 170)
                     }
                 }
             }
+            .background(.red.opacity(0.2))
+            .listRowInsets(EdgeInsets())
+            .listStyle(.insetGrouped)            
             .navigationDestination(for: MovieRemote.self) { movie in
                 MovieDetailsView(movie: movie)
             }
-
             .navigationTitle("🍿 Boxotop")
             .searchable(text: $viewModel.searchQuery)
             .task {
                 await viewModel.fetchMovies()
             }
         }
-
     }
 }
 

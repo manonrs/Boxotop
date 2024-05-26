@@ -46,7 +46,7 @@ struct MovieRemote: Codable {
     let director: String?
     let writer: String?
     let actors: String?
-    let plot: String?
+    let plot: String
     let language: String?
     let country: String?
     let awards: String?
@@ -120,7 +120,7 @@ extension SearchResponse: Identifiable { }
 
 struct Rating: Codable {
     let id = UUID()
-    let source: String
+    let source: RatingSource
     let value: String
     
     enum CodingKeys: String, CodingKey {
@@ -131,4 +131,49 @@ struct Rating: Codable {
 
 extension Rating: Hashable { }
 
-extension Rating: Identifiable {}
+extension Rating: Identifiable { }
+
+enum RatingSource: String, Codable {
+    case internetMovieDatabase = "Internet Movie Database"
+    case rottenTomatoes = "Rotten Tomatoes"
+    case metacritic = "Metacritic"
+    case unknown
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let source = try container.decode(String.self)
+        self = RatingSource(rawValue: source) ?? .unknown
+    }
+}
+
+extension MovieRemote {
+    static let example =  MovieRemote(
+        title: "Furiosa: A Mad Max Saga",
+        year: "2024",
+        rated: "N/A",
+        released: "24 May 2024",
+        runtime: "N/A",
+        genre: "Action, Adventure, Sci-Fi",
+        director: "George Miller",
+        writer: "George Miller, Nick Lathouris",
+        actors: "Anya Taylor-Joy, Chris Hemsworth, Charlee Fraser",
+        plot: "N/A", //The origin story of renegade warrior Furiosa before her encounter and teamup with Mad Max.",
+        language: "English",
+        country: "Australia",
+        awards: "N/A",
+        poster: "https://m.media-amazon.com/images/M/MV5BNjYxZjY3ZDAtNDc1Mi00YzMxLWI4MWEtNzQwZGExYmMzODFhXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_SX300.jpg",
+        ratings: [Rating(source: RatingSource(rawValue: "Rotten Tomatoes")!, value: "75%"),
+                 Rating(source: RatingSource(rawValue: "Internet Movie Database")!, value: "6.3/10")],
+        metascore: "N/A",
+        imdbRating: "N/A",
+        imdbVotes: "N/A",
+        imdbID: "tt12037194",
+        type: "movie",
+        dvd: "N/A",
+        boxOffice: "N/A",
+        production: "N/A",
+        website: "N/A",
+        response: "True"
+    )
+
+}

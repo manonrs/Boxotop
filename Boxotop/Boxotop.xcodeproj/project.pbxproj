@@ -23,6 +23,7 @@
 		8BF6B3EF2C00ED4900E5DB5C /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */; };
 		8BF6B3F22C03615300E5DB5C /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */; };
 		8BF6B3F42C03689400E5DB5C /* MoviePosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */; };
+		8BF6B3F62C03800C00E5DB5C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F52C03800C00E5DB5C /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterView.swift; sourceTree = "<group>"; };
+		8BF6B3F52C03800C00E5DB5C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */,
 				8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */,
 				8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */,
+				8BF6B3F52C03800C00E5DB5C /* WebView.swift */,
 			);
 			path = MovieListview;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				8BF6B3EF2C00ED4900E5DB5C /* MoviesListViewModel.swift in Sources */,
 				8BF6B3D02C00E68D00E5DB5C /* Persistence.swift in Sources */,
 				8BF6B3F22C03615300E5DB5C /* MovieDetailsView.swift in Sources */,
+				8BF6B3F62C03800C00E5DB5C /* WebView.swift in Sources */,
 				8BF6B3E92C00EBA000E5DB5C /* MovieRepository.swift in Sources */,
 				8BF6B3C92C00E68B00E5DB5C /* ContentView.swift in Sources */,
 				8BF6B3C72C00E68B00E5DB5C /* BoxotopApp.swift in Sources */,
