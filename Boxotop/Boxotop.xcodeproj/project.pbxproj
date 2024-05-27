@@ -16,7 +16,7 @@
 		8BF6B3DE2C00E7CC00E5DB5C /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */; };
 		8BF6B3E12C00E7FF00E5DB5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E02C00E7FF00E5DB5C /* Constants.swift */; };
 		8BF6B3E42C00E8F600E5DB5C /* MoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E32C00E8F600E5DB5C /* MoviesDataSource.swift */; };
-		8BF6B3E72C00EA3600E5DB5C /* MovieRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */; };
+		8BF6B3E72C00EA3600E5DB5C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E62C00EA3600E5DB5C /* Movie.swift */; };
 		8BF6B3E92C00EBA000E5DB5C /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E82C00EBA000E5DB5C /* MovieRepository.swift */; };
 		8BF6B3EB2C00EC0900E5DB5C /* GetMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EA2C00EC0900E5DB5C /* GetMoviesUseCase.swift */; };
 		8BF6B3ED2C00EC7D00E5DB5C /* InjectorUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EC2C00EC7D00E5DB5C /* InjectorUtilities.swift */; };
@@ -24,6 +24,7 @@
 		8BF6B3F22C03615300E5DB5C /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */; };
 		8BF6B3F42C03689400E5DB5C /* MoviePosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */; };
 		8BF6B3F62C03800C00E5DB5C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F52C03800C00E5DB5C /* WebView.swift */; };
+		8BF6B3F92C03943300E5DB5C /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,7 @@
 		8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		8BF6B3E02C00E7FF00E5DB5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF6B3E32C00E8F600E5DB5C /* MoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataSource.swift; sourceTree = "<group>"; };
-		8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRemote.swift; sourceTree = "<group>"; };
+		8BF6B3E62C00EA3600E5DB5C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		8BF6B3E82C00EBA000E5DB5C /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		8BF6B3EA2C00EC0900E5DB5C /* GetMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesUseCase.swift; sourceTree = "<group>"; };
 		8BF6B3EC2C00EC7D00E5DB5C /* InjectorUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorUtilities.swift; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterView.swift; sourceTree = "<group>"; };
 		8BF6B3F52C03800C00E5DB5C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		8BF6B3C52C00E68B00E5DB5C /* Boxotop */ = {
 			isa = PBXGroup;
 			children = (
+				8BF6B3F72C03942400E5DB5C /* Helpers */,
 				8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */,
 				8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */,
 				8BF6B3DF2C00E7ED00E5DB5C /* Datas */,
@@ -133,7 +136,7 @@
 		8BF6B3E52C00EA2D00E5DB5C /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */,
+				8BF6B3E62C00EA3600E5DB5C /* Movie.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -144,6 +147,14 @@
 				8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		8BF6B3F72C03942400E5DB5C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF6B3E72C00EA3600E5DB5C /* MovieRemote.swift in Sources */,
+				8BF6B3E72C00EA3600E5DB5C /* Movie.swift in Sources */,
 				8BF6B3EB2C00EC0900E5DB5C /* GetMoviesUseCase.swift in Sources */,
 				8BF6B3ED2C00EC7D00E5DB5C /* InjectorUtilities.swift in Sources */,
 				8BF6B3EF2C00ED4900E5DB5C /* MoviesListViewModel.swift in Sources */,
@@ -229,6 +240,7 @@
 				8BF6B3E42C00E8F600E5DB5C /* MoviesDataSource.swift in Sources */,
 				8BF6B3F42C03689400E5DB5C /* MoviePosterView.swift in Sources */,
 				8BF6B3DE2C00E7CC00E5DB5C /* MovieList.swift in Sources */,
+				8BF6B3F92C03943300E5DB5C /* LocalizedAlertError.swift in Sources */,
 				8BF6B3D32C00E68D00E5DB5C /* Boxotop.xcdatamodeld in Sources */,
 				8BF6B3E12C00E7FF00E5DB5C /* Constants.swift in Sources */,
 			);

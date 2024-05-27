@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MovieDetailsView: View {
     
-    let movie: MovieRemote
+    let movie: Movie
 //    @State var rottenTomatoesRating: Double
     @State var isShowingFullScreen = false
     var body: some View {
+        
         VStack {
             HStack(spacing: 8) {
                 MoviePosterView(poster: movie.poster)
@@ -90,6 +91,7 @@ struct MovieDetailsView: View {
                 }
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func convertRottenRatting(percentage: String) -> Double {

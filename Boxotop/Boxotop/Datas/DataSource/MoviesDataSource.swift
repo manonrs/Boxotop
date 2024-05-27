@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesDataSource {
-    func fetchMoviesCurrentlyInFRTheater() async throws -> [MovieRemote]
+    func fetchMoviesCurrentlyInFRTheater() async throws -> [Movie]
 }
 
 final class MoviesRemoteDataSource: MoviesDataSource {
@@ -26,13 +26,13 @@ final class MoviesRemoteDataSource: MoviesDataSource {
         "Challengers",
         "Civil War",
         "Frères",
-        "Ducobu passe au vert",
-        "The Omen"
+        "Ducobu passe au vert"
     ]
+
     init() { }
         
-    func fetchMoviesCurrentlyInFRTheater() async throws -> [MovieRemote] {
-        var movies: [MovieRemote] = []
+    func fetchMoviesCurrentlyInFRTheater() async throws -> [Movie] {
+        var movies: [Movie] = []
         let dispatchGroup = DispatchGroup()
         
         for movie in moviesCurrentlyInTheaterInFrance {
@@ -60,30 +60,11 @@ final class MoviesRemoteDataSource: MoviesDataSource {
                 print("Raw JSON response: \(jsonString)")
             }
             do {
-                let searchResponse = try decoder.decode(MovieRemote.self, from: data)
+                let searchResponse = try decoder.decode(Movie.self, from: data)
                 movies.append(searchResponse)
                 //                }
             } 
-//            catch {
-//                print("error for:", movie)
-//                print(error.localizedDescription)
-//            }
-            
-            catch DecodingError.keyNotFound(let key, let context) {
-                        print("Missing key: \(key) in context: \(context)")
-                    } catch DecodingError.valueNotFound(let type, let context) {
-                        print("Missing value for type: \(type) in context: \(context)")
-                    } catch DecodingError.typeMismatch(let type, let context) {
-                        print("Type mismatch for type: \(type) in context: \(context)")
-                    } catch DecodingError.dataCorrupted(let context) {
-                        print("Data corrupted in context: \(context)")
-                    } catch {
-                        print("Decoding error: \(error.localizedDescription)")
-                    }
-            
             dispatchGroup.leave()
-            
-            
         }
         return movies
     }

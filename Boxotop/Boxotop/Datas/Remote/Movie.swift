@@ -1,5 +1,5 @@
 //
-//  MovieRemote.swift
+//  Movie.swift
 //  Boxotop
 //
 //  Created by Manon Russo  on 24/05/2024.
@@ -7,35 +7,7 @@
 
 import Foundation
 
-//struct MovieRemote: Codable {
-//    let id = UUID()
-//    let title: String
-//    let year: String
-//    let imdbID: String?
-//    let type: String
-//    let poster: String
-//    let genre: String?
-//    let releaseDate: String?
-//    let rated: String?
-//    let actors: String?
-//    let plot: String?
-//
-//    // CodingKeys to map JSON keys to struct properties
-//    enum CodingKeys: String, CodingKey {
-//        case title = "Title"
-//        case year = "Year"
-//        case imdbID = "imdbID"
-//        case type = "Type"
-//        case poster = "Poster"
-//        case genre = "Genre"
-//        case releaseDate = "Released"
-//        case rated = "Rated"
-//        case actors = "Actors"
-//        case plot = "Plot"
-//    }
-//}
-
-struct MovieRemote: Codable {
+struct Movie: Codable {
     let id = UUID()
     let title: String
     let year: String
@@ -92,15 +64,15 @@ struct MovieRemote: Codable {
     }
 }
 
-extension MovieRemote: Identifiable { }
+extension Movie: Identifiable { }
 
-extension MovieRemote: Hashable { }
+extension Movie: Hashable { }
 
 
 // Struct to represent the entire search response
 struct SearchResponse: Codable {
     let id = UUID()
-    let search: [MovieRemote]
+    let search: [Movie]
     let totalResults: String
     let response: String
 
@@ -146,8 +118,8 @@ enum RatingSource: String, Codable {
     }
 }
 
-extension MovieRemote {
-    static let example =  MovieRemote(
+extension Movie {
+    static let example =  Movie(
         title: "Furiosa: A Mad Max Saga",
         year: "2024",
         rated: "N/A",

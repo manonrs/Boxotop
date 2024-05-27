@@ -8,7 +8,7 @@
 import Foundation
 
 protocol _GetMoviesUseCase {
-    func getMovies() async throws -> [MovieRemote]
+    func getMovies() async throws -> [Movie]
 }
 
 final class GetMoviesUseCase: _GetMoviesUseCase {
@@ -19,7 +19,7 @@ final class GetMoviesUseCase: _GetMoviesUseCase {
         self.movieRepository = movieRepository
     }
     
-    func getMovies() async throws -> [MovieRemote] {
+    func getMovies() async throws -> [Movie] {
         return try await movieRepository.getMovies()
     }
 }

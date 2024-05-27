@@ -12,11 +12,11 @@ import Observation
 final class MoviesListViewModel {
     private let getMoviesUseCase: _GetMoviesUseCase
     
-    var movies: [MovieRemote] = []
+    var movies: [Movie] = []
     var error: Error?
     var searchQuery = ""
 
-    var searchResult: [MovieRemote] {
+    var searchResult: [Movie] {
         guard !searchQuery.isEmpty else {
             return movies
         }
@@ -31,6 +31,7 @@ final class MoviesListViewModel {
         self.getMoviesUseCase = getMoviesUseCase
     }
     
+    @MainActor
     func fetchMovies() async {
         do {
             let fetchedMovies = try await getMoviesUseCase.getMovies()

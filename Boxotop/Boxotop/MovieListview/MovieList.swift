@@ -35,14 +35,20 @@ struct MovieListView: View {
             .background(.red.opacity(0.2))
             .listRowInsets(EdgeInsets())
             .listStyle(.insetGrouped)            
-            .navigationDestination(for: MovieRemote.self) { movie in
+            .navigationDestination(for: Movie.self) { movie in
                 MovieDetailsView(movie: movie)
+            }
+            .overlay {
+                if viewModel.searchResult.isEmpty && !viewModel.searchQuery.isEmpty {
+                    ContentUnavailableView.search
+                }
             }
             .navigationTitle("🍿 Boxotop")
             .searchable(text: $viewModel.searchQuery)
             .task {
                 await viewModel.fetchMovies()
             }
+            .errorAlert(error: $viewModel.error)
         }
     }
 }
