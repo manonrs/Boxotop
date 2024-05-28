@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
-    
-    let movie: Movie
     @State var isShowingFullScreen = false
     @State private var viewModel = MovieDetailsViewViewModel()
-    let persistenceController = PersistenceController.shared
     @FetchRequest(sortDescriptors: [])
     var favMovies: FetchedResults<Item>
+
+    let movie: Movie
+    let persistenceController = PersistenceController.shared
 
     var body: some View {
         VStack {
@@ -95,20 +95,17 @@ struct MovieDetailsView: View {
         .task {
             isMovieFavourite()
         }
+        .errorAlert(error: $viewModel.error)
         .navigationBarItems(trailing:
-                                Button(action: {
-            if viewModel.isFavourite {
-                removeItem()
-            } else {
-                addItem()
-            }
-        }, label: {
+                                Button {
+            viewModel.isFavourite ? removeItem() : addItem()
+        } label: {
             Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
-        })
+        }
         )
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     private func isMovieFavourite() {
         viewModel.isLoading = true
         for favMovie in favMovies where favMovie.title == movie.title {
@@ -116,7 +113,7 @@ struct MovieDetailsView: View {
         }
         viewModel.isLoading = false
     }
-    
+
     private func removeItem() {
         withAnimation {
             for favMovie in favMovies where favMovie.title == movie.title {
@@ -126,33 +123,27 @@ struct MovieDetailsView: View {
                 try persistenceController.container.viewContext.save()
                 viewModel.isFavourite = false
             } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                viewModel.error = error
             }
         }
     }
 
     private func addItem() {
-        withAnimation {
-            let newItem = Item(context: persistenceController.container.viewContext)
-            newItem.title = movie.title
-            newItem.id = movie.id
-            newItem.actors = movie.actors
-            newItem.director = movie.director
-            newItem.genre = movie.genre
-            newItem.plot = movie.plot
-            newItem.poster = movie.poster
-            newItem.writer = movie.writer
-            newItem.year = movie.year
-            do {
-                try persistenceController.container.viewContext.save()
-                viewModel.isFavourite = true
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+        let newItem = Item(context: persistenceController.container.viewContext)
+        newItem.title = movie.title
+        newItem.id = movie.id
+        newItem.actors = movie.actors
+        newItem.director = movie.director
+        newItem.genre = movie.genre
+        newItem.plot = movie.plot
+        newItem.poster = movie.poster
+        newItem.writer = movie.writer
+        newItem.year = movie.year
+        do {
+            try persistenceController.container.viewContext.save()
+            viewModel.isFavourite = true
+        } catch {
+            viewModel.error = error
         }
     }
 }

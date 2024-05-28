@@ -26,7 +26,7 @@ final class MoviesListViewModel {
                 movie.title.contains(searchQuery)
             }
     }
-    
+
     init(getMoviesUseCase: _GetMoviesUseCase = InjectorUtilities.shared.getMoviesUseCase) {
         self.getMoviesUseCase = getMoviesUseCase
     }
@@ -38,11 +38,7 @@ final class MoviesListViewModel {
             let fetchedMovies = try await getMoviesUseCase.getMovies()
             self.movies = fetchedMovies
         } catch {
-            print("errors are")
             self.error = error
-            print(error.localizedDescription)
-            print(error)
-            print("Failed to decode JSON: \(error)")
         }
         self.isLoading = false
     }

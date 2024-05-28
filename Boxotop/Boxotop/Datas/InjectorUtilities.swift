@@ -13,14 +13,12 @@ final class InjectorUtilities {
     private init() { }
 
     // MARK: - Datasources
-
     private lazy var movieDataSource: MoviesDataSource = MoviesRemoteDataSource()
 
     // MARK: - Repositories
-
     private lazy var movieRepository: _MovieRepository = MovieRepository(datasource: movieDataSource)
 
+    
     // MARK: - UseCases
-
     lazy var getMoviesUseCase: _GetMoviesUseCase = GetMoviesUseCase(movieRepository: movieRepository)
 }

@@ -8,5 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let baseURL = URL(string: "https://www.omdbapi.com/?apikey=cc158338")
+    static let baseURL = URL(string: "https://www.omdbapi.com/?")
+    /// Should be in git iignore, I left it here for the project to be ready to compile
+    static let apiKey = "cc158338"
 }

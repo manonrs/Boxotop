@@ -41,28 +41,21 @@ final class MoviesRemoteDataSource: MoviesDataSource {
             guard let baseURL = Constants.baseURL else {
                 throw URLError(.badURL)
             }
-            
+    
             var queryItems = [URLQueryItem]()
+            queryItems.append(URLQueryItem(name: "apikey", value: Constants.apiKey))
             queryItems.append(URLQueryItem(name: "y", value: "2024"))
             queryItems.append(URLQueryItem(name: "t", value: "\(movie)"))
             queryItems.append(URLQueryItem(name: "p", value: "1"))
             queryItems.append(URLQueryItem(name: "type", value: "movie"))
-//            queryItems.append(URLQueryItem(name: "r", value: "json"))
-            
-           
+
             var url = baseURL
             url.append(queryItems: queryItems)
             let (data, _) = try await URLSession.shared.data(from: url)
-//             Debugging helper
-            
-            if let jsonString = String(data: data, encoding: .utf8) {
-//                print("Raw JSON response: \(jsonString)")
-            }
             do {
                 let searchResponse = try decoder.decode(Movie.self, from: data)
                 movies.append(searchResponse)
-                //                }
-            } 
+            }
             dispatchGroup.leave()
         }
         return movies

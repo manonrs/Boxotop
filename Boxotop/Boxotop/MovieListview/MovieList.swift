@@ -28,7 +28,11 @@ struct MovieListView: View {
                                     VStack(alignment: .leading) {
                                         Text(movie.title)
                                             .bold()
-                                        Text("\(movie.type) - \(movie.year)")
+                                        if let genre = movie.genre {
+                                            Text(genre)
+                                                .font(.caption)
+                                                .italic()
+                                        }
                                     }
                                 }
                             }
@@ -37,13 +41,12 @@ struct MovieListView: View {
                     }
                 }
                 .background(.red.opacity(0.2))
-                .navigationTitle("🍿 Boxotop")
                 .listRowInsets(EdgeInsets())
                 .listStyle(.insetGrouped)
                 .navigationDestination(for: Movie.self) { movie in
                     MovieDetailsView(movie: movie)
-                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
-
+                        .environment(\.managedObjectContext, 
+                                      persistenceController.container.viewContext)
                 }
                 .overlay {
                     if viewModel.searchResult.isEmpty && !viewModel.searchQuery.isEmpty {

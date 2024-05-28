@@ -10,12 +10,13 @@ import CoreData
 
 struct ContentView: View {
     let persistenceController = PersistenceController.shared
-    
+
     var body: some View {
         Group {
             TabView {
                 NavigationStack {
                     MovieListView()
+                        .navigationTitle("🍿 Boxotop")
                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 }
                 .tabItem {
@@ -40,5 +41,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
+        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

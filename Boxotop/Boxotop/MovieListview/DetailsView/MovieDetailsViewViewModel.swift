@@ -12,7 +12,8 @@ import Observation
 final class MovieDetailsViewViewModel {
     var isFavourite = false
     var isLoading = false
-    
+    var error: Error?
+
     func convertRottenRatting(percentage: String) -> Double {
         let cleanedString = percentage.replacingOccurrences(of: "%", with: "")
         if let percentageValue = Double(cleanedString) {

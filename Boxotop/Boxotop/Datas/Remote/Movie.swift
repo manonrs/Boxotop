@@ -68,15 +68,12 @@ extension Movie: Identifiable { }
 
 extension Movie: Hashable { }
 
-
-// Struct to represent the entire search response
 struct SearchResponse: Codable {
     let id = UUID()
     let search: [Movie]
     let totalResults: String
     let response: String
 
-    // CodingKeys to map JSON keys to struct properties
     enum CodingKeys: String, CodingKey {
         case search = "Search"
         case totalResults
@@ -87,8 +84,6 @@ struct SearchResponse: Codable {
 extension SearchResponse: Hashable { }
 
 extension SearchResponse: Identifiable { }
-
-
 
 struct Rating: Codable {
     let id = UUID()
@@ -129,7 +124,7 @@ extension Movie {
         director: "George Miller",
         writer: "George Miller, Nick Lathouris",
         actors: "Anya Taylor-Joy, Chris Hemsworth, Charlee Fraser",
-        plot: "N/A", //The origin story of renegade warrior Furiosa before her encounter and teamup with Mad Max.",
+        plot: "The origin story of renegade warrior Furiosa before her encounter and teamup with Mad Max.",
         language: "English",
         country: "Australia",
         awards: "N/A",
