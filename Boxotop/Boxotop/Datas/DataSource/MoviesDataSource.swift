@@ -52,12 +52,11 @@ final class MoviesRemoteDataSource: MoviesDataSource {
            
             var url = baseURL
             url.append(queryItems: queryItems)
-            print(url)
             let (data, _) = try await URLSession.shared.data(from: url)
 //             Debugging helper
             
             if let jsonString = String(data: data, encoding: .utf8) {
-                print("Raw JSON response: \(jsonString)")
+//                print("Raw JSON response: \(jsonString)")
             }
             do {
                 let searchResponse = try decoder.decode(Movie.self, from: data)

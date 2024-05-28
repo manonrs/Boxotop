@@ -10,10 +10,13 @@ import SwiftUI
 struct MovieDetailsView: View {
     
     let movie: Movie
-//    @State var rottenTomatoesRating: Double
     @State var isShowingFullScreen = false
+    @State private var viewModel = MovieDetailsViewViewModel()
+    let persistenceController = PersistenceController.shared
+    @FetchRequest(sortDescriptors: [])
+    var favMovies: FetchedResults<Item>
+
     var body: some View {
-        
         VStack {
             HStack(spacing: 8) {
                 MoviePosterView(poster: movie.poster)
@@ -30,11 +33,8 @@ struct MovieDetailsView: View {
                     Text(movie.title)
                         .font(.title)
                 }
-                
             }
             .padding()
-        }
-        VStack(alignment: .leading, spacing: 16) {
             List {
                 Section {
                     VStack(alignment: .leading) {
@@ -66,18 +66,18 @@ struct MovieDetailsView: View {
                                 HStack {
                                     switch source {
                                     case .internetMovieDatabase:
-                                        ProgressView(value: convertIMDBRatingToProgress(rating: note))
+                                        ProgressView(value: viewModel.convertIMDBRatingToProgress(rating: note))
                                             .padding(.bottom)
                                         
                                     case .metacritic:
-                                        ProgressView(value: convertMetacriticRatingToProgress(rating: note))
+                                        ProgressView(value: viewModel.convertMetacriticRatingToProgress(rating: note))
                                             .padding(.bottom)
                                         
                                     case .rottenTomatoes:
-                                        ProgressView(value: convertRottenRatting(percentage: note))
+                                        ProgressView(value: viewModel.convertRottenRatting(percentage: note))
                                             .padding(.bottom)
                                         
-                                    default:
+                                    case .unknown:
                                         EmptyView()
                                     }
                                 }
@@ -92,44 +92,71 @@ struct MovieDetailsView: View {
                 }
             }
         }
+        .task {
+            isMovieFavourite()
+        }
+        .navigationBarItems(trailing:
+                                Button(action: {
+            if viewModel.isFavourite {
+                removeItem()
+            } else {
+                addItem()
+            }
+        }, label: {
+            Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
+        })
+        )
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    func convertRottenRatting(percentage: String) -> Double {
-        let cleanedString = percentage.replacingOccurrences(of: "%", with: "")
-        if let percentageValue = Double(cleanedString) {
-            return percentageValue / 100.0
+    private func isMovieFavourite() {
+        viewModel.isLoading = true
+        for favMovie in favMovies where favMovie.title == movie.title {
+            viewModel.isFavourite = true
         }
-        return 0.0
+        viewModel.isLoading = false
     }
     
-//    private func convertRottenRatting() -> Double {
-//        if let ratingString = movie.ratings?.first?.value {
-//            let cleanedString = ratingString.replacingOccurrences(of: "%", with: "")
-//            if let progressValue = Double(cleanedString) {
-//                print(progressValue / 100)
-//                return progressValue / 100
-//            }
-//        }
-//        return 0.0
-//    }
-    
-    private func convertIMDBRatingToProgress(rating: String) -> Double {
-        let components = rating.split(separator: "/")
-        if let score = components.first, let scoreDouble = Double(score) {
-            return scoreDouble / 10.0
+    private func removeItem() {
+        withAnimation {
+            for favMovie in favMovies where favMovie.title == movie.title {
+                persistenceController.container.viewContext.delete(favMovie)
+            }
+            do {
+                try persistenceController.container.viewContext.save()
+                viewModel.isFavourite = false
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
-        return 0.0
     }
 
-    private func convertMetacriticRatingToProgress(rating: String) -> Double {
-        let components = rating.split(separator: "/")
-        if let score = components.first, let scoreDouble = Double(score) {
-            return scoreDouble / 100.0
+    private func addItem() {
+        withAnimation {
+            let newItem = Item(context: persistenceController.container.viewContext)
+            newItem.title = movie.title
+            newItem.id = movie.id
+            newItem.actors = movie.actors
+            newItem.director = movie.director
+            newItem.genre = movie.genre
+            newItem.plot = movie.plot
+            newItem.poster = movie.poster
+            newItem.writer = movie.writer
+            newItem.year = movie.year
+            do {
+                try persistenceController.container.viewContext.save()
+                viewModel.isFavourite = true
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
-        return 0.0
     }
 }
+
 #Preview {
     NavigationStack {
         MovieDetailsView(movie: .example)

@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieListView: View {
     @State private var navigationPath = NavigationPath()
     @State private var viewModel = MoviesListViewModel()
+    let persistenceController = PersistenceController.shared
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -36,21 +37,23 @@ struct MovieListView: View {
                     }
                 }
                 .background(.red.opacity(0.2))
+                .navigationTitle("🍿 Boxotop")
                 .listRowInsets(EdgeInsets())
                 .listStyle(.insetGrouped)
                 .navigationDestination(for: Movie.self) { movie in
                     MovieDetailsView(movie: movie)
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+
                 }
                 .overlay {
                     if viewModel.searchResult.isEmpty && !viewModel.searchQuery.isEmpty {
                         ContentUnavailableView.search
                     }
                 }
-                .navigationTitle("🍿 Boxotop")
                 .searchable(text: $viewModel.searchQuery)
-                .errorAlert(error: $viewModel.error)
             }
         }
+        .errorAlert(error: $viewModel.error)
         .task {
             await viewModel.fetchMovies()
         }

@@ -37,25 +37,12 @@ final class MoviesListViewModel {
         do {
             let fetchedMovies = try await getMoviesUseCase.getMovies()
             self.movies = fetchedMovies
-            print("movies are", movies)
         } catch {
             print("errors are")
             self.error = error
             print(error.localizedDescription)
             print(error)
             print("Failed to decode JSON: \(error)")
-//            if let decodingError = error as? DecodingError {
-//                switch decodingError {
-//                case .typeMismatch(_, let context),
-//                        .valueNotFound(_, let context),
-//                        .keyNotFound(_, let context),
-//                        .dataCorrupted(let context):
-//                    print("Decoding error context: \(context)")
-//                @unknown default:
-//                    print("Unknown decoding error")
-//                }
-//                print("error is", error)
-//            }
         }
         self.isLoading = false
     }
