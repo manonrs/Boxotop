@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
+    
+    //MARK: - Properties
     @State var isShowingFullScreen = false
     @State private var viewModel = MovieDetailsViewViewModel()
     @FetchRequest(sortDescriptors: [])
@@ -106,6 +108,7 @@ struct MovieDetailsView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
+    // MARK: - Private Core Data methods
     private func isMovieFavourite() {
         viewModel.isLoading = true
         for favMovie in favMovies where favMovie.title == movie.title {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieListView: View {
+    // MARK: - Properties
     @State private var navigationPath = NavigationPath()
     @State private var viewModel = MoviesListViewModel()
     let persistenceController = PersistenceController.shared

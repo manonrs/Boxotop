@@ -10,8 +10,9 @@ import Observation
 
 @Observable
 final class MoviesListViewModel {
-    private let getMoviesUseCase: _GetMoviesUseCase
     
+// MARK: - Properties
+    private let getMoviesUseCase: _GetMoviesUseCase
     var movies: [Movie] = []
     var error: Error?
     var searchQuery = ""

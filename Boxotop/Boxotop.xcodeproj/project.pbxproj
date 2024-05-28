@@ -32,6 +32,7 @@
 /* Begin PBXFileReference section */
 		8B80D0352C05E6F5008B8BC7 /* FavListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListView.swift; sourceTree = "<group>"; };
 		8B80D0372C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewViewModel.swift; sourceTree = "<group>"; };
+		8B80D03D2C066DB9008B8BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8BF6B3C32C00E68B00E5DB5C /* Boxotop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxotop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxotopApp.swift; sourceTree = "<group>"; };
 		8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		8BF6B3C52C00E68B00E5DB5C /* Boxotop */ = {
 			isa = PBXGroup;
 			children = (
+				8B80D03D2C066DB9008B8BC7 /* Info.plist */,
 				8BF6B3F72C03942400E5DB5C /* Helpers */,
 				8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */,
 				8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */,
@@ -387,9 +389,9 @@
 				DEVELOPMENT_TEAM = VZGSB4BK6V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boxotop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -416,9 +418,9 @@
 				DEVELOPMENT_TEAM = VZGSB4BK6V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boxotop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

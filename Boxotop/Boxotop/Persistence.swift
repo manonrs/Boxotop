@@ -8,6 +8,7 @@
 import CoreData
 
 struct PersistenceController {
+    // MARK: - Properties
     static let shared = PersistenceController()
     var error: Error?
     let container: NSPersistentContainer

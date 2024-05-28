@@ -13,6 +13,7 @@ protocol MoviesDataSource {
 
 final class MoviesRemoteDataSource: MoviesDataSource {
     
+    // MARK: - Properties
     private let decoder = JSONDecoder()
     
     // OMDb API doesn't provide list for movies currently in box office so I hardlisted it
@@ -30,7 +31,7 @@ final class MoviesRemoteDataSource: MoviesDataSource {
     ]
 
     init() { }
-        
+    // MARK: - Methods
     func fetchMoviesCurrentlyInFRTheater() async throws -> [Movie] {
         var movies: [Movie] = []
         let dispatchGroup = DispatchGroup()

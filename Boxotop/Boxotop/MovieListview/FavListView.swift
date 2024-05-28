@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavListView: View {
+    // MARK: Properties
     let persistenceController = PersistenceController.shared
     @FetchRequest(sortDescriptors: [])
     var favMovies: FetchedResults<Item>

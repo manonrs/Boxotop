@@ -10,10 +10,13 @@ import Observation
 
 @Observable
 final class MovieDetailsViewViewModel {
+
+    // MARK: - Properties
     var isFavourite = false
     var isLoading = false
     var error: Error?
 
+    // MARK: - Public methods
     func convertRottenRatting(percentage: String) -> Double {
         let cleanedString = percentage.replacingOccurrences(of: "%", with: "")
         if let percentageValue = Double(cleanedString) {
