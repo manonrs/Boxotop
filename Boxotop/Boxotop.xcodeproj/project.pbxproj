@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B80D0362C05E6F5008B8BC7 /* FavListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80D0352C05E6F5008B8BC7 /* FavListView.swift */; };
+		8B80D0382C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80D0372C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift */; };
 		8BF6B3C72C00E68B00E5DB5C /* BoxotopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */; };
 		8BF6B3C92C00E68B00E5DB5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */; };
 		8BF6B3CB2C00E68D00E5DB5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF6B3CA2C00E68D00E5DB5C /* Assets.xcassets */; };
@@ -16,16 +18,21 @@
 		8BF6B3DE2C00E7CC00E5DB5C /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */; };
 		8BF6B3E12C00E7FF00E5DB5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E02C00E7FF00E5DB5C /* Constants.swift */; };
 		8BF6B3E42C00E8F600E5DB5C /* MoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E32C00E8F600E5DB5C /* MoviesDataSource.swift */; };
-		8BF6B3E72C00EA3600E5DB5C /* MovieRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */; };
+		8BF6B3E72C00EA3600E5DB5C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E62C00EA3600E5DB5C /* Movie.swift */; };
 		8BF6B3E92C00EBA000E5DB5C /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3E82C00EBA000E5DB5C /* MovieRepository.swift */; };
 		8BF6B3EB2C00EC0900E5DB5C /* GetMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EA2C00EC0900E5DB5C /* GetMoviesUseCase.swift */; };
 		8BF6B3ED2C00EC7D00E5DB5C /* InjectorUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EC2C00EC7D00E5DB5C /* InjectorUtilities.swift */; };
 		8BF6B3EF2C00ED4900E5DB5C /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */; };
 		8BF6B3F22C03615300E5DB5C /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */; };
 		8BF6B3F42C03689400E5DB5C /* MoviePosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */; };
+		8BF6B3F62C03800C00E5DB5C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F52C03800C00E5DB5C /* WebView.swift */; };
+		8BF6B3F92C03943300E5DB5C /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B80D0352C05E6F5008B8BC7 /* FavListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListView.swift; sourceTree = "<group>"; };
+		8B80D0372C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewViewModel.swift; sourceTree = "<group>"; };
+		8B80D03D2C066DB9008B8BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8BF6B3C32C00E68B00E5DB5C /* Boxotop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxotop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxotopApp.swift; sourceTree = "<group>"; };
 		8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,13 +43,15 @@
 		8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		8BF6B3E02C00E7FF00E5DB5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF6B3E32C00E8F600E5DB5C /* MoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataSource.swift; sourceTree = "<group>"; };
-		8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRemote.swift; sourceTree = "<group>"; };
+		8BF6B3E62C00EA3600E5DB5C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		8BF6B3E82C00EBA000E5DB5C /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		8BF6B3EA2C00EC0900E5DB5C /* GetMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesUseCase.swift; sourceTree = "<group>"; };
 		8BF6B3EC2C00EC7D00E5DB5C /* InjectorUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorUtilities.swift; sourceTree = "<group>"; };
 		8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterView.swift; sourceTree = "<group>"; };
+		8BF6B3F52C03800C00E5DB5C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,8 @@
 		8BF6B3C52C00E68B00E5DB5C /* Boxotop */ = {
 			isa = PBXGroup;
 			children = (
+				8B80D03D2C066DB9008B8BC7 /* Info.plist */,
+				8BF6B3F72C03942400E5DB5C /* Helpers */,
 				8BF6B3C62C00E68B00E5DB5C /* BoxotopApp.swift */,
 				8BF6B3C82C00E68B00E5DB5C /* ContentView.swift */,
 				8BF6B3DF2C00E7ED00E5DB5C /* Datas */,
@@ -102,6 +113,8 @@
 				8BF6B3DD2C00E7CC00E5DB5C /* MovieList.swift */,
 				8BF6B3EE2C00ED4900E5DB5C /* MoviesListViewModel.swift */,
 				8BF6B3F32C03689400E5DB5C /* MoviePosterView.swift */,
+				8BF6B3F52C03800C00E5DB5C /* WebView.swift */,
+				8B80D0352C05E6F5008B8BC7 /* FavListView.swift */,
 			);
 			path = MovieListview;
 			sourceTree = "<group>";
@@ -130,7 +143,7 @@
 		8BF6B3E52C00EA2D00E5DB5C /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				8BF6B3E62C00EA3600E5DB5C /* MovieRemote.swift */,
+				8BF6B3E62C00EA3600E5DB5C /* Movie.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -139,8 +152,17 @@
 			isa = PBXGroup;
 			children = (
 				8BF6B3F12C03615300E5DB5C /* MovieDetailsView.swift */,
+				8B80D0372C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		8BF6B3F72C03942400E5DB5C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8BF6B3F82C03943300E5DB5C /* LocalizedAlertError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,18 +235,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF6B3E72C00EA3600E5DB5C /* MovieRemote.swift in Sources */,
+				8BF6B3E72C00EA3600E5DB5C /* Movie.swift in Sources */,
+				8B80D0362C05E6F5008B8BC7 /* FavListView.swift in Sources */,
 				8BF6B3EB2C00EC0900E5DB5C /* GetMoviesUseCase.swift in Sources */,
 				8BF6B3ED2C00EC7D00E5DB5C /* InjectorUtilities.swift in Sources */,
 				8BF6B3EF2C00ED4900E5DB5C /* MoviesListViewModel.swift in Sources */,
 				8BF6B3D02C00E68D00E5DB5C /* Persistence.swift in Sources */,
 				8BF6B3F22C03615300E5DB5C /* MovieDetailsView.swift in Sources */,
+				8BF6B3F62C03800C00E5DB5C /* WebView.swift in Sources */,
 				8BF6B3E92C00EBA000E5DB5C /* MovieRepository.swift in Sources */,
 				8BF6B3C92C00E68B00E5DB5C /* ContentView.swift in Sources */,
 				8BF6B3C72C00E68B00E5DB5C /* BoxotopApp.swift in Sources */,
+				8B80D0382C05EA41008B8BC7 /* MovieDetailsViewViewModel.swift in Sources */,
 				8BF6B3E42C00E8F600E5DB5C /* MoviesDataSource.swift in Sources */,
 				8BF6B3F42C03689400E5DB5C /* MoviePosterView.swift in Sources */,
 				8BF6B3DE2C00E7CC00E5DB5C /* MovieList.swift in Sources */,
+				8BF6B3F92C03943300E5DB5C /* LocalizedAlertError.swift in Sources */,
 				8BF6B3D32C00E68D00E5DB5C /* Boxotop.xcdatamodeld in Sources */,
 				8BF6B3E12C00E7FF00E5DB5C /* Constants.swift in Sources */,
 			);
@@ -363,9 +389,9 @@
 				DEVELOPMENT_TEAM = VZGSB4BK6V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boxotop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,9 +418,9 @@
 				DEVELOPMENT_TEAM = VZGSB4BK6V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boxotop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

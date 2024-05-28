@@ -8,7 +8,7 @@
 import Foundation
 
 protocol _MovieRepository {
-    func getMovies() async throws -> [MovieRemote]
+    func getMovies() async throws -> [Movie]
 }
 
 final class MovieRepository: _MovieRepository {
@@ -19,7 +19,7 @@ final class MovieRepository: _MovieRepository {
         self.datasource = datasource
     }
 
-    func getMovies() async throws -> [MovieRemote] {
+    func getMovies() async throws -> [Movie] {
         return try await datasource.fetchMoviesCurrentlyInFRTheater()
     }
 }

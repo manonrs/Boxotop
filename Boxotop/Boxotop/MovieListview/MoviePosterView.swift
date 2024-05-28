@@ -14,7 +14,6 @@ struct MoviePosterView: View {
     var body: some View {
         if poster != "N/A",
            let poster = poster {
-            // mettre image placeholder si NA
             AsyncImage(url: URL(string: poster)) { image in
                 image
                     .resizable()
@@ -23,16 +22,16 @@ struct MoviePosterView: View {
                 ProgressView()
             }
             .aspectRatio(contentMode: .fill)
-            .frame(width: 80, height: 80)
+            .frame(width: 100)
         } else {
             Image(systemName: "square.slash")
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
-            
+                .frame(width: 100, height: 150)
+                .background(.gray)
         }
     }
 }
 
-//#Preview {
-//    MoviePosterView()
-//}
+#Preview {
+    MoviePosterView(poster: "N/A")
+}
