@@ -17,6 +17,8 @@ struct ContentView: View {
     }
 }
 
+// TODO: -Item entity filled, add a tabbar with favourite tab, add action for when fav button tapped, movie add to fav tab
+
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
 //

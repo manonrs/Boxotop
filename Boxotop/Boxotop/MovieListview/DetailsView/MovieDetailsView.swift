@@ -54,8 +54,9 @@ struct MovieDetailsView: View {
                 if let writer = movie.writer {
                     LabeledContent("✍️ Writer", value: writer)
                 }
-                Section("★ What viewers say about it") {
-                    if let ratings = movie.ratings {
+                if let ratings = movie.ratings,
+                   ratings != [] {
+                    Section("★ What viewers say about it") {
                         ForEach(ratings, id: \.id) { rating in
                             let note = rating.value
                             let source = rating.source
